@@ -1,0 +1,261 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Job",
+    "description": "This is a job api",
+    "termsOfService": "http://stack.network/terms-of-service.html",
+    "version": "v1"
+  },
+  "host": "job.api.kinlane.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "joblication/json"
+  ],
+  "paths": {
+    "job/": {
+      "get": {
+        "summary": "retrieves all jobs",
+        "description": "pulls all jobs, with filter by keyword",
+        "operationId": "getJobs",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "a text query to search across job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "job response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "job",
+          "jobging"
+        ]
+      },
+      "post": {
+        "summary": "add job",
+        "description": "add a new job",
+        "operationId": "addJob",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name of the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "description of the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "description": "url for the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "tags for the job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "job response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "job",
+          "jobging"
+        ]
+      }
+    },
+    "job/{slug}": {
+      "get": {
+        "summary": "Retrieve a job using its slug",
+        "description": "Returns the job detail",
+        "operationId": "getJob",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "slug for the job, notice this is in the path, not a query variable",
+            "required": "true",
+            "type": "integer",
+            "format": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "job response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "job",
+          "jobging"
+        ]
+      },
+      "put": {
+        "summary": "update job",
+        "description": "update job",
+        "operationId": "updateJob",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "unique slug for the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name of the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "description of the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "description": "url for the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "tags for the job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "job response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "job",
+          "jobging"
+        ]
+      },
+      "delete": {
+        "summary": "delete job",
+        "description": "deletes an job",
+        "operationId": "deleteJob",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "unique slug for the job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "job response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "job",
+          "jobging"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "job": {
+      "properties": {
+        "name": {
+          "description": "name of the job",
+          "type": "string",
+          "format": "label"
+        },
+        "description": {
+          "description": "description of the job",
+          "type": "string"
+        },
+        "url": {
+          "description": "url for the job",
+          "type": "string"
+        },
+        "tags": {
+          "description": "tags for the job",
+          "type": "string"
+        },
+        "slug": {
+          "description": "slug for the job",
+          "type": "string",
+          "format": "id"
+        }
+      }
+    },
+    "errorModel": {
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
