@@ -1,7 +1,7 @@
 {
   "name": "Kin Lane - Job",
   "description": "This is my default job API, using it to manage posts in a single API. It is a Stack Network API resource, with supporting docker container for the API.",
-  "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-job-icon.png",
+  "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-job-2.png",
   "tags": [
     "application programming interface",
     "API",
@@ -15,7 +15,7 @@
     {
       "name": "Job",
       "description": "A job API resource.",
-      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-job-icon.png",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-job-2.png",
       "humanURL": "https://kin-lane.github.io/job/",
       "baseURL": "http://job.api.kinlane.com",
       "tags": [
