@@ -2,30 +2,44 @@
   "swagger": "2.0",
   "info": {
     "title": "Job",
-    "description": "This is a job api",
+    "description": "This is an job for all my jobs, which I use to orchestrate my infrastructure. I aggregate the jobs across all of my system and use a centralized CRON approach to executing orchestration.",
     "termsOfService": "http://stack.network/terms-of-service.html",
-    "version": "v1"
+    "version": "v2"
   },
   "host": "job.api.kinlane.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "produces": [
-    "joblication/json"
+    "application/json"
   ],
   "paths": {
-    "job/": {
+    "/job/": {
       "get": {
-        "summary": "retrieves all jobs",
-        "description": "pulls all jobs, with filter by keyword",
+        "summary": "all jobs",
+        "description": "all jobs",
         "operationId": "getJobs",
         "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "query",
             "in": "query",
             "description": "a text query to search across job",
-            "required": true,
+            "required": false,
             "type": "string"
           }
         ],
@@ -41,72 +55,82 @@
           }
         },
         "tags": [
-          "job",
-          "jobging"
+          "Jobs"
         ]
       },
       "post": {
-        "summary": "add job",
-        "description": "add a new job",
+        "summary": "add a job post",
+        "description": "add a job post",
         "operationId": "addJob",
         "parameters": [
           {
-            "name": "name",
+            "name": "appid",
             "in": "query",
-            "description": "name of the job",
+            "description": "your appid for accessing the job",
             "required": true,
             "type": "string"
           },
           {
-            "name": "description",
+            "name": "appkey",
             "in": "query",
-            "description": "description of the job",
+            "description": "your appkey for accessing the job",
             "required": true,
             "type": "string"
           },
           {
-            "name": "url",
+            "name": "post_date",
             "in": "query",
-            "description": "url for the job",
+            "description": "date the job was posted",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tags",
+            "name": "title",
             "in": "query",
-            "description": "tags for the job",
+            "description": "ttle for the job",
             "required": true,
             "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "job response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/job"
-              }
-            }
-          }
-        },
-        "tags": [
-          "job",
-          "jobging"
-        ]
-      }
-    },
-    "job/{slug}": {
-      "get": {
-        "summary": "Retrieve a job using its slug",
-        "description": "Returns the job detail",
-        "operationId": "getJob",
-        "parameters": [
+          },
           {
-            "name": "slug",
-            "in": "path",
-            "description": "slug for the job, notice this is in the path, not a query variable",
-            "required": "true",
+            "name": "author",
+            "in": "query",
+            "description": "author of the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "summary",
+            "in": "query",
+            "description": "summary for the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "query",
+            "description": "full text for the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "footer",
+            "in": "query",
+            "description": "curated id the job originated from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status of the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "curated_id",
+            "in": "query",
+            "description": "full text for the job",
+            "required": true,
             "type": "integer",
             "format": "id"
           }
@@ -123,8 +147,126 @@
           }
         },
         "tags": [
-          "job",
-          "jobging"
+          "Jobs"
+        ]
+      }
+    },
+    "/job/published/": {
+      "get": {
+        "summary": "published jobs",
+        "description": "published jobs",
+        "operationId": "getPublishedJobs",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Jobs"
+        ]
+      }
+    },
+    "/job/draft/": {
+      "get": {
+        "summary": "draft jobs",
+        "description": "draft jobs",
+        "operationId": "getDraftJobs",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "job response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Jobs"
+        ]
+      }
+    },
+    "/job/{job_id}/": {
+      "get": {
+        "summary": "Retrieve a job using its slug",
+        "description": "Returns the job detail",
+        "operationId": "getJob",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "the unique id for job entry",
+            "required": true,
+            "type": "integer",
+            "format": "id"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "job response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Jobs"
         ]
       },
       "put": {
@@ -133,39 +275,83 @@
         "operationId": "updateJob",
         "parameters": [
           {
-            "name": "slug",
+            "name": "job_id",
             "in": "path",
-            "description": "unique slug for the job",
+            "description": "the unique id for job entry",
+            "required": true,
+            "type": "integer",
+            "format": "id"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
             "required": true,
             "type": "string"
           },
           {
-            "name": "name",
+            "name": "appkey",
             "in": "query",
-            "description": "name of the job",
+            "description": "your appkey for accessing the job",
             "required": true,
             "type": "string"
           },
           {
-            "name": "description",
+            "name": "post_date",
             "in": "query",
-            "description": "description of the job",
+            "description": "date the job was posted",
             "required": true,
             "type": "string"
           },
           {
-            "name": "url",
+            "name": "title",
             "in": "query",
-            "description": "url for the job",
+            "description": "ttle for the job",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tags",
+            "name": "author",
             "in": "query",
-            "description": "tags for the job",
+            "description": "author of the job",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "summary",
+            "in": "query",
+            "description": "summary for the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "query",
+            "description": "full text for the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "footer",
+            "in": "query",
+            "description": "curated id the job originated from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status of the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "curated_id",
+            "in": "query",
+            "description": "full text for the job",
+            "required": true,
+            "type": "integer",
+            "format": "id"
           }
         ],
         "responses": {
@@ -180,19 +366,33 @@
           }
         },
         "tags": [
-          "job",
-          "jobging"
+          "Jobs"
         ]
       },
       "delete": {
         "summary": "delete job",
-        "description": "deletes an job",
+        "description": "delete job",
         "operationId": "deleteJob",
         "parameters": [
           {
-            "name": "slug",
+            "name": "job_id",
             "in": "path",
-            "description": "unique slug for the job",
+            "description": "the unique id for job entry",
+            "required": true,
+            "type": "integer",
+            "format": "id"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
             "required": true,
             "type": "string"
           }
@@ -209,8 +409,278 @@
           }
         },
         "tags": [
-          "job",
-          "jobging"
+          "Jobs"
+        ]
+      }
+    },
+    "/job/{job_id}/tags/": {
+      "get": {
+        "summary": "job tags",
+        "description": "job tags",
+        "operationId": "getjobTags",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "id for job",
+            "required": true,
+            "type": "integer",
+            "format": "id"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job Tags Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/tag"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      },
+      "post": {
+        "summary": "add tag to job",
+        "description": "add tag to job",
+        "operationId": "addJobTag",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "id for the job",
+            "required": true,
+            "type": "integer",
+            "format": "id"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "tag name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/tag"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
+    "/job/{job_id}/tags/{tag}": {
+      "delete": {
+        "summary": "delete job tag",
+        "description": "delete job tag",
+        "operationId": "deletejobTag",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "id for the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "tag to remove from job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job Tag Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/tag"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
+    "/job/tags/byweek/": {
+      "get": {
+        "summary": "job tags by week",
+        "description": "job tags by week",
+        "operationId": "getJobTagsByWeek",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          },        
+          {
+            "name": "week",
+            "in": "query",
+            "description": "the week to retrieve tags by",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "the year to retrieve tags by",
+            "required": false,
+            "type": "string"
+          }          
+        ],
+        "responses": {
+          "200": {
+            "description": "Job Tag Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
+    "/job/tags/byweek/{tag}/job/": {
+      "get": {
+        "summary": "job tags by week jobs",
+        "description":  "job tags by week jobs",
+        "operationId": "getJobTagCJob",
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "the tag to filter by",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "week",
+            "in": "query",
+            "description": "the week to filter by, defaults to this week",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job Tag BLog Responsee",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
+    "/job/byweek/": {
+      "get": {
+        "summary": "jobs by week",
+        "description": "jobs by week",
+        "operationId": "getJobsByWeek",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the job",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the job",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/job"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Jobs"
         ]
       }
     }
@@ -218,42 +688,60 @@
   "definitions": {
     "job": {
       "properties": {
-        "name": {
-          "description": "name of the job",
-          "type": "string",
-          "format": "label"
+        "job_id": {
+          "description": "unique id of the job",
+          "type": "integer",
+          "format": "id"
         },
-        "description": {
-          "description": "description of the job",
+        "post_date": {
+          "description": "date the job was posted",
           "type": "string"
         },
-        "url": {
-          "description": "url for the job",
+        "title": {
+          "description": "ttle for the job",
           "type": "string"
         },
-        "tags": {
-          "description": "tags for the job",
+        "author": {
+          "description": "author of the job",
           "type": "string"
         },
-        "slug": {
-          "description": "slug for the job",
-          "type": "string",
+        "summary": {
+          "description": "summary for the job",
+          "type": "string"
+        },
+        "body": {
+          "description": "full body text of the job",
+          "type": "string"
+        },
+        "footer": {
+          "description": "footer text for the job",
+          "type": "string"
+        },
+        "status": {
+          "description": "status of the job",
+          "type": "string"
+        },
+        "curated_id": {
+          "description": "curated id the job originated from",
+          "type": "integer",
           "format": "id"
         }
       }
     },
-    "errorModel": {
-      "required": [
-        "code",
-        "message"
-      ],
+    "tag": {
       "properties": {
-        "code": {
+        "tag_id": {
+          "description": "id for the tag",
           "type": "integer",
-          "format": "int32"
+          "format": "id"
         },
-        "message": {
+        "tag": {
+          "description": "text tag",
           "type": "string"
+        },
+        "api_count": {
+          "description": "number of items api with tag",
+          "type": "integer"
         }
       }
     }
