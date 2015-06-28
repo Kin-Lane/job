@@ -1,0 +1,257 @@
+{
+	"id": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+	"name": "Job",
+	"description": "This is an job for all my jobs, which I use to orchestrate my infrastructure. I aggregate the jobs across all of my system and use a centralized CRON approach to executing orchestration.",
+	"order": [],
+	"folders": [
+		{
+			"id": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9",
+			"name": "job",
+			"description": "Folder for job",
+			"order": [
+				"ed186217-0dcc-440f-a40f-e7961f038f05",
+				"66c0f6a6-984b-4b03-a0ed-49b384bb4100",
+				"53af4113-d202-400c-89ab-4c2d4838f541",
+				"03f6bc61-fab6-4d78-9037-b9de0817c26a",
+				"7c11a228-daf8-4bde-86bb-077d16bc5ae0",
+				"aaee1125-d3ed-47d1-acc2-34c534ead92d",
+				"dcbc7f3f-59ba-4f0f-8ae9-aa71389e3957",
+				"6de8c32f-f5fd-49ef-997c-810b03ba6679"
+			],
+			"collection_name": "Job",
+			"collection_id": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"collection": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"owner": "27278"
+		}
+	],
+	"timestamp": 1413302258635,
+	"owner": "27278",
+	"hasRequests": true,
+	"synced": false,
+	"requests": [
+		{
+			"id": "03f6bc61-fab6-4d78-9037-b9de0817c26a",
+			"headers": "",
+			"url": "http://job.api.kinlane.com//job/{{job_id}}/?appid={{appid}}&appkey={{appkey}}&post_date={{post_date}}&title={{title}}&author={{author}}&summary={{summary}}&body={{body}}&footer={{footer}}&status={{status}}&curated_id={{curated_id}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "PUT",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "update job",
+			"descriptionFormat": "html",
+			"time": 1435475816421,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"synced": false,
+			"name": "update job",
+			"owner": "27278",
+			"folder": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9"
+		},
+		{
+			"id": "53af4113-d202-400c-89ab-4c2d4838f541",
+			"headers": "",
+			"url": "http://job.api.kinlane.com//job/{{job_id}}/?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "Returns the job detail",
+			"descriptionFormat": "html",
+			"time": 1435475816420,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"synced": false,
+			"name": "Retrieve a job using its slug",
+			"owner": "27278",
+			"folder": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9"
+		},
+		{
+			"id": "66c0f6a6-984b-4b03-a0ed-49b384bb4100",
+			"headers": "",
+			"url": "http://job.api.kinlane.com//job/?appid={{appid}}&appkey={{appkey}}&post_date={{post_date}}&title={{title}}&author={{author}}&summary={{summary}}&body={{body}}&footer={{footer}}&status={{status}}&curated_id={{curated_id}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "add a job post",
+			"descriptionFormat": "html",
+			"time": 1435475816419,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"synced": false,
+			"name": "add a job post",
+			"owner": "27278",
+			"folder": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9"
+		},
+		{
+			"id": "6de8c32f-f5fd-49ef-997c-810b03ba6679",
+			"headers": "",
+			"url": "http://job.api.kinlane.com//job/{{job_id}}/tags/{tag}?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "delete job tag",
+			"descriptionFormat": "html",
+			"time": 1435475816422,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"synced": false,
+			"name": "delete job tag",
+			"owner": "27278",
+			"folder": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9"
+		},
+		{
+			"id": "7c11a228-daf8-4bde-86bb-077d16bc5ae0",
+			"headers": "",
+			"url": "http://job.api.kinlane.com//job/{{job_id}}/?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "delete job",
+			"descriptionFormat": "html",
+			"time": 1435475816421,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"synced": false,
+			"name": "delete job",
+			"owner": "27278",
+			"folder": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9"
+		},
+		{
+			"id": "aaee1125-d3ed-47d1-acc2-34c534ead92d",
+			"headers": "",
+			"url": "http://job.api.kinlane.com//job/{{job_id}}/tags/?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "job tags",
+			"descriptionFormat": "html",
+			"time": 1435475816422,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"synced": false,
+			"name": "job tags",
+			"owner": "27278",
+			"folder": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9"
+		},
+		{
+			"id": "dcbc7f3f-59ba-4f0f-8ae9-aa71389e3957",
+			"headers": "",
+			"url": "http://job.api.kinlane.com//job/{{job_id}}/tags/?appid={{appid}}&appkey={{appkey}}&tag={{tag}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "add tag to job",
+			"descriptionFormat": "html",
+			"time": 1435475816422,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"synced": false,
+			"name": "add tag to job",
+			"owner": "27278",
+			"folder": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9"
+		},
+		{
+			"id": "ed186217-0dcc-440f-a40f-e7961f038f05",
+			"headers": "",
+			"url": "http://job.api.kinlane.com//job/?appid={{appid}}&appkey={{appkey}}&query={{query}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "all jobs",
+			"descriptionFormat": "html",
+			"time": 1435475816419,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "01ee5210-0632-48a3-b86a-8dadb061a04d",
+			"synced": false,
+			"name": "all jobs",
+			"owner": "27278",
+			"folder": "634d7f4a-b6a4-4dd1-8d1a-54167f76d9c9"
+		}
+	]
+}
