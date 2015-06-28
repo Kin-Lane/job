@@ -56,6 +56,14 @@
         },
         "tags": [
           "Jobs"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "post": {
@@ -148,80 +156,14 @@
         },
         "tags": [
           "Jobs"
-        ]
-      }
-    },
-    "/job/published/": {
-      "get": {
-        "summary": "published jobs",
-        "description": "published jobs",
-        "operationId": "getPublishedJobs",
-        "parameters": [
+        ],
+        "security": [
           {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the job",
-            "required": true,
-            "type": "string"
+            "appid": []
           },
           {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the job",
-            "required": true,
-            "type": "string"
+            "appkey": []
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Job Response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/job"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Jobs"
-        ]
-      }
-    },
-    "/job/draft/": {
-      "get": {
-        "summary": "draft jobs",
-        "description": "draft jobs",
-        "operationId": "getDraftJobs",
-        "parameters": [
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the job",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the job",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "job response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/job"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Jobs"
         ]
       }
     },
@@ -267,6 +209,14 @@
         },
         "tags": [
           "Jobs"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "put": {
@@ -367,6 +317,14 @@
         },
         "tags": [
           "Jobs"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "delete": {
@@ -410,6 +368,14 @@
         },
         "tags": [
           "Jobs"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -455,6 +421,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "post": {
@@ -505,6 +479,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -556,133 +538,28 @@
         },
         "tags": [
           "Tags"
-        ]
-      }
-    },
-    "/job/tags/byweek/": {
-      "get": {
-        "summary": "job tags by week",
-        "description": "job tags by week",
-        "operationId": "getJobTagsByWeek",
-        "parameters": [
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the job",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the job",
-            "required": true,
-            "type": "string"
-          },        
-          {
-            "name": "week",
-            "in": "query",
-            "description": "the week to retrieve tags by",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "year",
-            "in": "query",
-            "description": "the year to retrieve tags by",
-            "required": false,
-            "type": "string"
-          }          
         ],
-        "responses": {
-          "200": {
-            "description": "Job Tag Response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/job"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Tags"
-        ]
-      }
-    },
-    "/job/tags/byweek/{tag}/job/": {
-      "get": {
-        "summary": "job tags by week jobs",
-        "description":  "job tags by week jobs",
-        "operationId": "getJobTagCJob",
-        "parameters": [
+        "security": [
           {
-            "name": "tag",
-            "in": "path",
-            "description": "the tag to filter by",
-            "required": true,
-            "type": "string"
+            "appid": []
           },
           {
-            "name": "week",
-            "in": "query",
-            "description": "the week to filter by, defaults to this week",
-            "required": true,
-            "type": "string"
+            "appkey": []
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Job Tag BLog Responsee",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/job"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Tags"
         ]
       }
+    }
+  },
+  "securityDefinitions": {
+    "appid": {
+      "type": "apiKey",
+      "name": "appid",
+      "in": "query"
     },
-    "/job/byweek/": {
-      "get": {
-        "summary": "jobs by week",
-        "description": "jobs by week",
-        "operationId": "getJobsByWeek",
-        "parameters": [
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the job",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the job",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Job Response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/job"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Jobs"
-        ]
-      }
+    "appkey": {
+      "type": "apiKey",
+      "name": "appkey",
+      "in": "query"
     }
   },
   "definitions": {
@@ -704,27 +581,14 @@
         "author": {
           "description": "author of the job",
           "type": "string"
-        },
-        "summary": {
-          "description": "summary for the job",
-          "type": "string"
-        },
+        }
         "body": {
           "description": "full body text of the job",
           "type": "string"
-        },
-        "footer": {
-          "description": "footer text for the job",
-          "type": "string"
-        },
+        }
         "status": {
           "description": "status of the job",
           "type": "string"
-        },
-        "curated_id": {
-          "description": "curated id the job originated from",
-          "type": "integer",
-          "format": "id"
         }
       }
     },
