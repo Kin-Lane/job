@@ -34,16 +34,8 @@ $app->get($route, function ()  use ($app){
 		$post_date = $Database['Post_Date'];
 		$title = $Database['Title'];
 		$author = $Database['Author'];
-		$summary = $Database['Summary'];
 		$body = $Database['Body'];
-		$footer = $Database['Footer'];
 		$status = $Database['Status'];
-		$buildpage = $Database['Build_Page'];
-		$githubbuild = $Database['Github_Build'];
-		$twitterbuild = $Database['Twitter_Build'];
-		$linkedinbuild = $Database['LinkedIn_Build'];
-		$showonsite = $Database['Show_On_Site'];
-		$image = $Database['Feature_Image'];
 
 		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
 		$TagQuery .= " INNER JOIN job_tag_pivot btp ON t.tag_id = btp.tag_id";
@@ -60,16 +52,8 @@ $app->get($route, function ()  use ($app){
 		$F['post_date'] = $post_date;
 		$F['title'] = $title;
 		$F['author'] = $author;
-		$F['summary'] = $summary;
 		$F['body'] = $body;
-		$F['footer'] = $footer;
 		$F['status'] = $status;
-		$F['image'] = $image;
-		$F['build_page'] = $buildpage;
-		$F['github_build'] = $githubbuild;
-		$F['twitter_build'] = $twitterbuild;
-		$F['linkedin_build'] = $linkedinbuild;
-		$F['show_on_site'] = $showonsite;
 
 		$F['tags'] = array();
 

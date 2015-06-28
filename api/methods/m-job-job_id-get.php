@@ -18,16 +18,8 @@ $app->get($route, function ($job_id)  use ($app){
 		$post_date = $Database['Post_Date'];
 		$title = $Database['Title'];
 		$author = $Database['Author'];
-		$summary = $Database['Summary'];
 		$body = $Database['Body'];
-		$footer = $Database['Footer'];
 		$status = $Database['Status'];
-		$buildpage = $Database['Build_Page'];
-		$githubbuild = $Database['Github_Build'];
-		$twitterbuild = $Database['Twitter_Build'];
-		$linkedinbuild = $Database['LinkedIn_Build'];
-		$showonsite = $Database['Show_On_Site'];
-		$image = $Database['Feature_Image'];
 
 		// manipulation zone
 
@@ -44,17 +36,8 @@ $app->get($route, function ($job_id)  use ($app){
 		$F['post_date'] = $post_date;
 		$F['title'] = $title;
 		$F['author'] = $author;
-		$F['summary'] = $summary;
 		$F['body'] = $body;
-		$F['footer'] = $footer;
 		$F['status'] = $status;
-		$F['image'] = $image;
-		$F['build_page'] = $buildpage;
-		$F['github_build'] = $githubbuild;
-		$F['twitter_build'] = $twitterbuild;
-		$F['linkedin_build'] = $linkedinbuild;
-		$F['show_on_site'] = $showonsite;
-
 		$F['tags'] = array();
 
 		while ($Tag = mysql_fetch_assoc($TagResult))
