@@ -581,11 +581,11 @@
         "author": {
           "description": "author of the job",
           "type": "string"
-        }
+        },
         "body": {
           "description": "full body text of the job",
           "type": "string"
-        }
+        },
         "status": {
           "description": "status of the job",
           "type": "string"
