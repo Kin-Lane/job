@@ -86,13 +86,6 @@
             "type": "string"
           },
           {
-            "name": "post_date",
-            "in": "query",
-            "description": "date the job was posted",
-            "required": true,
-            "type": "string"
-          },
-          {
             "name": "title",
             "in": "query",
             "description": "ttle for the job",
@@ -103,44 +96,22 @@
             "name": "author",
             "in": "query",
             "description": "author of the job",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "summary",
-            "in": "query",
-            "description": "summary for the job",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "body",
             "in": "query",
             "description": "full text for the job",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "footer",
-            "in": "query",
-            "description": "curated id the job originated from",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "status",
             "in": "query",
             "description": "status of the job",
-            "required": true,
+            "required": false,
             "type": "string"
-          },
-          {
-            "name": "curated_id",
-            "in": "query",
-            "description": "full text for the job",
-            "required": true,
-            "type": "integer",
-            "format": "id"
           }
         ],
         "responses": {
@@ -247,13 +218,6 @@
             "type": "string"
           },
           {
-            "name": "post_date",
-            "in": "query",
-            "description": "date the job was posted",
-            "required": true,
-            "type": "string"
-          },
-          {
             "name": "title",
             "in": "query",
             "description": "ttle for the job",
@@ -268,23 +232,9 @@
             "type": "string"
           },
           {
-            "name": "summary",
-            "in": "query",
-            "description": "summary for the job",
-            "required": true,
-            "type": "string"
-          },
-          {
             "name": "body",
             "in": "query",
             "description": "full text for the job",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "footer",
-            "in": "query",
-            "description": "curated id the job originated from",
             "required": true,
             "type": "string"
           },
@@ -294,14 +244,6 @@
             "description": "status of the job",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "curated_id",
-            "in": "query",
-            "description": "full text for the job",
-            "required": true,
-            "type": "integer",
-            "format": "id"
           }
         ],
         "responses": {
