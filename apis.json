@@ -1,4 +1,4 @@
-[{
+{
 	"name": "Curated API",
 	"description": "As I look through the thousands of tweets, blog posts, and other items I read from across the API space, I curate them as part of my regular research. I put them into each research bucket, and make them availble via each reserch project. You can access via this API, and use in real-time as I curate and manage each week.",
 	"image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-abundance.png",
@@ -6,7 +6,7 @@
 	"tags": ["Kin Lane Curated APi"],
 	"created": "2016-04-04",
 	"modified": "2016-04-04",
-	"url": "https://kin-lane.github.io/curated/"
+	"url": "https://kin-lane.github.io/curated/",
 	"specificationVersion": "0.14",
 	"apis": [{
 		"name": "Kin Lane Curated",
@@ -117,4 +117,4 @@
 		"x-twitter": "apievangelist",
 		"email": "info@apievangelist.com"
 	}]
-}]
+}
